@@ -36,6 +36,13 @@ class PlayerMovementScaffoldTest(unittest.TestCase):
         self.assertIn('type="Polygon2D"', text)
         self.assertIn("res://scripts/actors/player/player.gd", text)
 
+    def test_player_movement_is_visually_observable_against_static_room(self) -> None:
+        player_scene = (ROOT / "scenes/actors/player/player.tscn").read_text(encoding="utf-8")
+        main_scene = (ROOT / "scenes/main/main.tscn").read_text(encoding="utf-8")
+        self.assertNotIn('type="Camera2D"', player_scene, "camera-follow makes early movement look stationary")
+        self.assertIn('name="RoomFloor"', main_scene)
+        self.assertIn('name="MovementHint"', main_scene)
+
 
 if __name__ == "__main__":
     unittest.main()
