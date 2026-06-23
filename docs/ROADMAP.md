@@ -7,9 +7,9 @@
 - [x] Hermes workflow documented
 
 ## Phase 2: First Playable Slice
-- [ ] Add player scene
-- [ ] Add basic movement
-- [ ] Add camera
+- [x] Add player scene
+- [x] Add basic movement
+- [x] Add camera
 - [ ] Local Godot playtest
 
 ## Phase 3: Iteration Loop
