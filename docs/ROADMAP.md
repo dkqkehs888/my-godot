@@ -18,7 +18,14 @@
 - [ ] Add enemies and tear collision damage
 - [ ] Tune fire rate, range, and projectile feel
 
-## Phase 4: Iteration Loop
+## Phase 4: Dungeon Prototype
+- [x] Add Isaac-style connected room graph
+- [x] Add visible doors and room transition
+- [x] Add visited-room tracking
+- [ ] Add enemies and room clear locks
+- [ ] Add minimap
+
+## Phase 5: Iteration Loop
 - [ ] Use Discord requests for small features
 - [ ] Push changes to GitHub
 - [ ] Pull/test locally

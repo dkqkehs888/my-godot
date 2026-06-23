@@ -18,3 +18,6 @@ func _physics_process(delta: float) -> void:
     _age += delta
     if _age >= lifetime:
         queue_free()
+
+func _ready() -> void:
+    add_to_group("player_projectiles")

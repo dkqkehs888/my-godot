@@ -40,8 +40,8 @@ class PlayerMovementScaffoldTest(unittest.TestCase):
         player_scene = (ROOT / "scenes/actors/player/player.tscn").read_text(encoding="utf-8")
         main_scene = (ROOT / "scenes/main/main.tscn").read_text(encoding="utf-8")
         self.assertNotIn('type="Camera2D"', player_scene, "camera-follow makes early movement look stationary")
-        self.assertIn('name="RoomFloor"', main_scene)
-        self.assertIn('name="MovementHint"', main_scene)
+        self.assertIn('name="RoomContent"', main_scene)
+        self.assertIn('name="RoomLabel"', main_scene)
 
     def test_player_script_supports_isaac_style_arrow_key_shooting(self) -> None:
         script = ROOT / "scripts/actors/player/player.gd"

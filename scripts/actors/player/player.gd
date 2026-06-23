@@ -6,6 +6,7 @@ const tear_scene: PackedScene = preload("res://scenes/projectiles/tear.tscn")
 @export var shoot_cooldown: float = 0.22
 @export var tear_spawn_offset: float = 24.0
 
+var room_bounds := Rect2(Vector2(48.0, 48.0), Vector2(1184.0, 624.0))
 var _shoot_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -30,6 +31,14 @@ func _move_player() -> void:
 
     velocity = direction * speed
     move_and_slide()
+    _clamp_to_room_bounds()
+
+func set_room_bounds(new_bounds: Rect2) -> void:
+    room_bounds = new_bounds
+    _clamp_to_room_bounds()
+
+func _clamp_to_room_bounds() -> void:
+    global_position = global_position.clamp(room_bounds.position, room_bounds.end)
 
 func _handle_shooting() -> void:
     if _shoot_timer > 0.0:
