@@ -12,7 +12,13 @@
 - [x] Add camera
 - [ ] Local Godot playtest
 
-## Phase 3: Iteration Loop
+## Phase 3: Combat Prototype
+- [x] Add Isaac-style cardinal shooting
+- [x] Add tear projectile scene
+- [ ] Add enemies and tear collision damage
+- [ ] Tune fire rate, range, and projectile feel
+
+## Phase 4: Iteration Loop
 - [ ] Use Discord requests for small features
 - [ ] Push changes to GitHub
 - [ ] Pull/test locally

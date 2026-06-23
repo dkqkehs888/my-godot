@@ -43,6 +43,36 @@ class PlayerMovementScaffoldTest(unittest.TestCase):
         self.assertIn('name="RoomFloor"', main_scene)
         self.assertIn('name="MovementHint"', main_scene)
 
+    def test_player_script_supports_isaac_style_arrow_key_shooting(self) -> None:
+        script = ROOT / "scripts/actors/player/player.gd"
+        text = script.read_text(encoding="utf-8")
+        self.assertIn("tear_scene", text)
+        self.assertIn("shoot_cooldown", text)
+        self.assertIn("_shoot", text)
+        for key in ["KEY_LEFT", "KEY_RIGHT", "KEY_UP", "KEY_DOWN"]:
+            self.assertIn(key, text)
+        self.assertIn("set_direction", text)
+
+    def test_tear_projectile_scene_and_script_exist(self) -> None:
+        scene = ROOT / "scenes/projectiles/tear.tscn"
+        script = ROOT / "scripts/projectiles/tear.gd"
+        self.assertTrue(scene.exists(), "tear.tscn should exist")
+        self.assertTrue(script.exists(), "tear.gd should exist")
+        scene_text = scene.read_text(encoding="utf-8")
+        script_text = script.read_text(encoding="utf-8")
+        self.assertIn('type="Area2D"', scene_text)
+        self.assertIn('type="CollisionShape2D"', scene_text)
+        self.assertIn('type="Polygon2D"', scene_text)
+        self.assertIn("res://scripts/projectiles/tear.gd", scene_text)
+        self.assertIn("func set_direction", script_text)
+        self.assertIn("_physics_process", script_text)
+        self.assertIn("queue_free()", script_text)
+
+    def test_main_hint_mentions_wasd_and_arrow_key_shooting(self) -> None:
+        main_scene = (ROOT / "scenes/main/main.tscn").read_text(encoding="utf-8")
+        self.assertIn("WASD: move", main_scene)
+        self.assertIn("Arrow Keys: shoot", main_scene)
+
 
 if __name__ == "__main__":
     unittest.main()
