@@ -1,0 +1,21 @@
+name: Vibe Coding Task
+description: Small Godot task for Hermes to implement
+labels: [vibe-task]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should change in the game?
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Files, scenes, or behavior Hermes should preserve.
+  - type: textarea
+    id: validation
+    attributes:
+      label: Local Godot Validation
+      description: How should this be tested in Godot?

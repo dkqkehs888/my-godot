@@ -1,0 +1,16 @@
+name: Feature Request
+description: Request a new gameplay/editor feature
+labels: [enhancement]
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: Feature
+      description: What should be added?
+    validations:
+      required: true
+  - type: textarea
+    id: test
+    attributes:
+      label: Test Plan
+      description: How will you test it locally in Godot?

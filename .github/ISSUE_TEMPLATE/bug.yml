@@ -1,0 +1,20 @@
+name: Bug Report
+description: Godot runtime/editor issue to fix
+labels: [bug]
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: Bug
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Godot Console Logs
+      render: text
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
